@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="数据标注新手入门：原始数据、标签、训练集和评测集。">
+  <title>新手入门｜AI 模型数据标注知识库</title><link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="../"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航"><a href="../">首页</a><a href="./" aria-current="page">入门</a><a href="../school-model/">学校模型</a><a href="../workflow/">交付流程</a><a href="../quality/">质量验收</a><a href="../platform/">系统选型</a><a href="../glossary/">术语</a></nav></div></header>
+  <main>
+    <section class="shell page-hero"><div class="breadcrumbs"><a href="../">首页</a> / 新手入门</div><p class="kicker">Start here</p><h1>数据标注到底在做什么？</h1><p class="lead">先不谈软件和公司，先理解模型为什么需要标签、不同数据集有什么用途，以及“做完”为什么不等于“模型能用”。</p></section>
+    <div class="shell reader">
+      <aside class="toc"><strong>本页目录</strong><nav><a href="#one">一句话理解</a><a href="#raw">原始与标注数据</a><a href="#dataset">四类数据集</a><a href="#example">完整例子</a><a href="#chain">产业链三层</a><a href="#check">学完检查</a></nav></aside>
+      <article class="article" id="article">
+        <div class="summary"><strong>读完这一页，你应能说明</strong><p>数据标注不是简单“贴标签”，而是把模型目标和领域知识转成结构化、可复核、可进入训练或评测的数据。</p></div>
+
+        <h2 id="one">1. 一句话理解数据标注</h2>
+        <p>数据标注是给原始文本、图像、音频、视频或其他数据增加模型可以学习或评测的结构化信息。</p>
+        <div class="note note-example"><span class="note-label">举例</span><p>原始图片里有一辆汽车。标注后，数据不仅包含图片，还包含“汽车”类别以及汽车在图中的位置坐标。目标检测模型才能学习“汽车通常长什么样、出现在哪里”。</p></div>
+        <div class="note note-why"><span class="note-label">为什么重要</span><p>如果标签定义不一致，模型学到的是互相冲突的答案。标注数量再大，也可能放大错误。</p></div>
+
+        <h2 id="raw">2. 原始数据与标注数据有什么区别</h2>
+        <div class="table-wrap"><table><thead><tr><th>数据状态</th><th>示例</th><th>模型得到什么</th></tr></thead><tbody><tr><td>原始数据</td><td>一段客服问答</td><td>只有文字内容，不知道回答是否正确</td></tr><tr><td>标注数据</td><td>问答 + 事实性、相关性、安全性评分</td><td>可以学习什么是好回答，或用于评估模型</td></tr></tbody></table></div>
+        <div class="note"><span class="note-label">术语注释 · 标签</span><p>标签是附加在样本上的结构化答案，例如“正面/负面”“汽车”“事实错误”“A 回答优于 B 回答”。标签不一定只有一个，也可以是坐标、文本片段、评分或关系。</p></div>
+
+        <h2 id="dataset">3. 训练、验证、测试和评测数据</h2>
+        <div class="table-wrap"><table><thead><tr><th>数据集</th><th>作用</th><th>关键注意</th></tr></thead><tbody><tr><td><strong>训练集</strong></td><td>让模型学习规律</td><td>规模、覆盖和标签一致性</td></tr><tr><td><strong>验证集</strong></td><td>训练过程中选择参数和方案</td><td>不能与训练样本重复</td></tr><tr><td><strong>测试集</strong></td><td>最终检查模型泛化效果</td><td>答案应严格隔离，防止泄漏</td></tr><tr><td><strong>独立评测集</strong></td><td>按特定场景或风险评价模型</td><td>需要稳定评分规则和专家判断</td></tr></tbody></table></div>
+        <div class="note note-warning"><span class="note-label">常见误区 · 数据泄漏</span><p>如果测试题及答案进入训练集，模型可能只是“见过答案”，最终指标会虚高。这叫数据泄漏或测试集污染。</p></div>
+
+        <h2 id="example">4. 用学校知识问答模型理解完整过程</h2>
+        <p>假设某学校要训练一个回答校内制度问题的模型。仅把文档丢给模型并不一定够，还可能需要：</p>
+        <ol><li>整理制度、办事指南和公开问答；</li><li>标记文档标题、章节、发布日期和适用对象；</li><li>制作“问题—参考答案—证据出处”数据；</li><li>为模型回答标注事实性、完整性、引用和安全性；</li><li>把常见错误整理成独立评测集；</li><li>根据模型错误补充新的难例数据。</li></ol>
+        <pre class="flow-code">学校的模型目标
+→ 数据整理与标签设计
+→ 试标和规则修订
+→ 批量标注与质检
+→ 训练/评测数据集
+→ 模型训练和错误分析
+→ 下一轮数据改进</pre>
+
+        <h2 id="chain">5. 需求、平台、执行三层</h2>
+        <div class="table-wrap"><table><thead><tr><th>层次</th><th>主要责任</th></tr></thead><tbody><tr><td><strong>需求层</strong></td><td>定义模型目标、数据用途、领域标准和验收要求</td></tr><tr><td><strong>平台层</strong></td><td>把需求转成规范、系统、人员、质检、版本和交付</td></tr><tr><td><strong>执行层</strong></td><td>按照规范完成标注、复核或专业判断</td></tr></tbody></table></div>
+        <div class="note note-why"><span class="note-label">为什么平台层最关键</span><p>如果没有平台层，不同人员会按各自理解作答。真正的专业能力是让多人在同一规则下稳定生产，并能用证据说明质量。</p></div>
+
+        <h2 id="check">6. 学完检查</h2>
+        <ol><li>你能否用自己的话解释标签是什么？</li><li>你能否说出训练集和测试集为什么要隔离？</li><li>你能否解释为什么甲方购买的不是“人”，而是可验收数据？</li></ol>
+        <div class="next-links"><a href="../">← 返回首页</a><a href="../school-model/">下一页：学校模型数据合作 →</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>新手入门</strong><br>遇到陌生词，可随时查看术语表</div><div>© <span data-current-year>2026</span></div></div></footer><script src="../assets/site.js"></script>
+</body></html>

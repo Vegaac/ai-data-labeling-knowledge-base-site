@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="数据标注质量指标、质检方法和验收说明。"><title>质量与验收｜AI 模型数据标注知识库</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="../"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航"><a href="../">首页</a><a href="../start/">入门</a><a href="../school-model/">学校模型</a><a href="../workflow/">交付流程</a><a href="./" aria-current="page">质量验收</a><a href="../platform/">系统选型</a><a href="../glossary/">术语</a></nav></div></header>
+  <main>
+    <section class="shell page-hero"><div class="breadcrumbs"><a href="../">首页</a> / 质量与验收</div><p class="kicker">Quality is measurable</p><h1>“准确率很高”为什么不是完整答案</h1><p class="lead">质量必须有标准样本、计算分母、抽样方法、错误等级和返工规则。否则一个漂亮数字可能无法复算，也无法作为合同验收依据。</p></section>
+    <div class="shell reader">
+      <aside class="toc"><strong>本页目录</strong><nav><a href="#accuracy">准确率</a><a href="#agreement">一致性</a><a href="#methods">质量方法</a><a href="#errors">错误等级</a><a href="#acceptance">四层验收</a><a href="#model">模型效果</a></nav></aside>
+      <article class="article" id="article">
+        <div class="summary"><strong>先看结论</strong><p>质量不是最后抽几条看一眼，而是从标签设计、培训、试标、生产、抽检、返工到验收贯穿全项目。</p></div>
+
+        <h2 id="accuracy">1. 准确率必须说明分母</h2>
+        <pre class="flow-code">准确率 = 判定正确的样本数 ÷ 被检查的有效样本数</pre>
+        <p>报告准确率时，还要同时说明：检查了多少条、如何抽样、谁提供标准答案、跳过项是否计入、不同错误严重度如何处理。</p>
+        <div class="note note-example"><span class="note-label">举例</span><p>检查 100 条有效样本，92 条正确，准确率为 92%。但如果这 100 条全部来自最简单的类别，就不能代表整个数据集质量。</p></div>
+        <div class="note note-warning"><span class="note-label">常见误区</span><p>只说“准确率 95%”，却不说明样本数和抽样方式。5% 错误如果集中在高风险类别，模型仍可能不可用。</p></div>
+
+        <h2 id="agreement">2. 一致性不等于正确性</h2>
+        <p>一致性描述两个或多个标注人员是否给出相同答案。所有人都可能按照错误规则达成一致，因此一致性高不代表一定正确。</p>
+        <div class="note"><span class="note-label">术语注释 · 标注一致性</span><p>简单分类可以计算一致比例；类别不平衡或任务更复杂时，可使用 Cohen's Kappa、Fleiss' Kappa 等指标。选择哪种指标要与任务类型匹配。</p></div>
+
+        <h2 id="methods">3. 常见质量控制方法分别解决什么问题</h2>
+        <div class="table-wrap"><table><thead><tr><th>方法</th><th>作用</th><th>局限</th></tr></thead><tbody><tr><td><strong>金标</strong></td><td>检查人员是否理解标准</td><td>需要可信专家制作和维护</td></tr><tr><td><strong>双标</strong></td><td>发现规则歧义和人员分歧</td><td>增加成本，分歧仍需仲裁</td></tr><tr><td><strong>自动校验</strong></td><td>发现必填、格式、枚举、重复和逻辑错误</td><td>不能替代专业语义判断</td></tr><tr><td><strong>随机抽检</strong></td><td>估计整体质量</td><td>可能漏掉稀有高风险错误</td></tr><tr><td><strong>风险抽检</strong></td><td>重点检查难例、异常人员和关键类别</td><td>不能单独估计整体比例</td></tr><tr><td><strong>专家仲裁</strong></td><td>解决专业难例和规则边界</td><td>专家时间有限，流程要聚焦</td></tr></tbody></table></div>
+        <div class="note note-why"><span class="note-label">为什么要组合使用</span><p>自动校验擅长格式，双标擅长发现歧义，专家擅长专业判断，随机抽检适合估计整体质量。没有一种方法能覆盖所有错误。</p></div>
+
+        <h2 id="errors">4. 错误要分等级</h2>
+        <div class="table-wrap"><table><thead><tr><th>等级</th><th>示例</th><th>常见处理</th></tr></thead><tbody><tr><td>Critical</td><td>数据泄露、测试集答案进入训练集、关键类别完全错误</td><td>暂停批次、扩大检查、根因调查</td></tr><tr><td>Major</td><td>影响模型用途的错误标签或漏标</td><td>返工、复验、评估相邻样本</td></tr><tr><td>Minor</td><td>不改变核心标签的轻微格式或表述问题</td><td>修正或在后续批次改进</td></tr></tbody></table></div>
+
+        <h2 id="acceptance">5. 验收应覆盖四个层次</h2>
+        <ol><li><strong>文件层：</strong>文件、字段、编码、数量和校验值正确；</li><li><strong>标签层：</strong>标签正确性、一致性、漏标和边界偏差达到约定；</li><li><strong>流程层：</strong>规范、质检、返工、版本和操作记录可追溯；</li><li><strong>可用层：</strong>数据可以被模型管线读取，类别和难例覆盖符合用途。</li></ol>
+        <p>合同还应说明不达标时是局部返工、整批返工、补充样本、重新抽检还是终止。</p>
+
+        <h2 id="model">6. 数据质量与模型效果的边界</h2>
+        <p>高质量数据通常有助于模型，但模型效果同时受算法、参数、基础模型、训练方法、数据分布和评测集影响。</p>
+        <div class="note note-warning"><span class="note-label">责任边界</span><p>数据服务方可以对约定的数据文件、标签和质量流程负责；如果不控制模型训练过程，不应承诺模型必然达到某个指标。</p></div>
+        <div class="next-links"><a href="../workflow/">← 上一页：交付流程</a><a href="../platform/">下一页：系统选型 →</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>质量与验收</strong><br>每个数字都要能解释和复算</div><div>© <span data-current-year>2026</span></div></div></footer><script src="../assets/site.js"></script>
+</body></html>

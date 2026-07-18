@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="第一课：数据标注产业链与服务商定位。"><title>第一课：产业链与服务商定位｜AI 模型数据标注知识库</title><link rel="stylesheet" href="../../assets/site.css"></head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="../../"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航"><a href="../../">首页</a><a href="../../start/">入门</a><a href="../../school-model/">学校模型</a><a href="../../workflow/">交付流程</a><a href="../../quality/">质量验收</a><a href="../../platform/">系统选型</a><a href="../../glossary/">术语</a></nav></div></header>
+  <main>
+    <section class="shell page-hero"><div class="breadcrumbs"><a href="../../">首页</a> / 第一课</div><p class="kicker">Lesson 01</p><h1>数据标注产业链与服务商定位</h1><p class="lead">目标：能清楚说明谁提出模型需求、谁设计数据生产、谁执行标注，以及专业数据服务商真正对什么负责。</p></section>
+    <div class="shell reader">
+      <aside class="toc"><strong>本课目录</strong><nav><a href="#three">三句话</a><a href="#sell">卖什么</a><a href="#layers">三层结构</a><a href="#example">项目例子</a><a href="#position">服务商定位</a><a href="#exercise">练习</a></nav></aside>
+      <article class="article" id="article">
+        <div class="summary"><strong>本课先记住三句话</strong><p>甲方购买的是可用于模型的数据集；平台层把需求转成稳定生产流程；执行人员数量不是核心竞争力。</p></div>
+
+        <h2 id="three">1. 四个基础术语</h2>
+        <dl class="definition-list"><div class="definition"><dt>标签体系</dt><dd>允许标注人员选择或填写的分类、属性和关系集合。</dd></div><div class="definition"><dt>标注规范</dt><dd>说明每个标签什么时候用、什么时候不用，以及边界和疑难如何处理。</dd></div><div class="definition"><dt>金标</dt><dd>由可信专家确认、用于培训或检查质量的标准答案。</dd></div><div class="definition"><dt>验收</dt><dd>委托方按照约定检查文件、标签、质量证据和可用性，并决定是否接收。</dd></div></dl>
+
+        <h2 id="sell">2. 数据标注公司真正卖什么</h2>
+        <pre class="flow-code">模型或业务问题
+→ 可执行标签规则
+→ 受控系统与合格人员
+→ 可测量的质量
+→ 有版本的数据集
+→ 训练、验证、测试或评测使用</pre>
+        <p>如果只提供人员，委托方仍要自己写规则、搭系统、培训、质检、处理返工和管理版本。专业服务商的价值，是把这些环节组合成稳定交付。</p>
+
+        <h2 id="layers">3. 需求、平台、执行三层</h2>
+        <div class="table-wrap"><table><thead><tr><th>层次</th><th>负责什么</th></tr></thead><tbody><tr><td><strong>需求层</strong></td><td>模型目标、数据用途、领域标准、预算和验收</td></tr><tr><td><strong>平台层</strong></td><td>样本审计、标签、规范、系统、人员、质检、版本和交付</td></tr><tr><td><strong>执行层</strong></td><td>按照规范完成标注、复核或领域判断</td></tr></tbody></table></div>
+        <div class="note note-why"><span class="note-label">为什么只组织人员不够</span><p>人员数量容易被替代和比价；规则工程、质量体系、数据安全、版本管理和项目交付更难复制，也更接近委托方真正的风险。</p></div>
+
+        <h2 id="example">4. 学校模型项目例子</h2>
+        <p>某课题组要评测大模型的专业问答：</p><ul><li>学校说明模型用途、不可接受的错误和专业判断标准；</li><li>数据服务商把“回答好不好”拆成事实性、相关性、完整性、安全性和证据等维度；</li><li>领域教师制作少量标准样本并仲裁专业难例；</li><li>标注与质检人员按统一规范完成评分；</li><li>企业交付评测数据、规范版本、质量报告和已知问题。</li></ul>
+        <div class="note note-example"><span class="note-label">关键观察</span><p>教师不需要逐条完成全部标注，但必须确认专业标准；企业不能替教师擅自决定专业答案，却要负责把标准转成可执行流程。</p></div>
+
+        <h2 id="position">5. 专业服务商的可信定位</h2>
+        <p>更可信的表述是：</p><div class="note"><span class="note-label">定位示例</span><p>我们把模型项目的数据需求转化为标签规范、受控系统、人员培训、质量闭环和版本化交付，并对约定的数据质量和项目管理负责。</p></div>
+        <p>不应轻易宣称“任何数据都能做”“准确率绝对有保证”或“数据一定让模型达到某个效果”。</p>
+
+        <h2 id="exercise">6. 练习</h2>
+        <ol><li>需求层、平台层和执行层分别负责什么？</li><li>为什么人员数量不能成为唯一竞争力？</li><li>学校训练模型时，学校、企业和领域教师分别承担什么？</li><li>用 120—200 字写一段数据标注服务商定位。</li></ol>
+        <div class="next-links"><a href="../../platform/">← 上一页：系统选型</a><a href="../../glossary/">下一页：术语速查 →</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>第一课</strong><br>目标是能用自己的话讲清产业链</div><div>© <span data-current-year>2026</span></div></div></footer><script src="../../assets/site.js"></script>
+</body></html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="飞书、Label Studio、CVAT 等数据标注系统的角色与选型。"><title>标注系统选型｜AI 模型数据标注知识库</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="../"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航"><a href="../">首页</a><a href="../start/">入门</a><a href="../school-model/">学校模型</a><a href="../workflow/">交付流程</a><a href="../quality/">质量验收</a><a href="./" aria-current="page">系统选型</a><a href="../glossary/">术语</a></nav></div></header>
+  <main>
+    <section class="shell page-hero"><div class="breadcrumbs"><a href="../">首页</a> / 标注系统选型</div><p class="kicker">Tool follows task</p><h1>不是先选软件，而是先理解任务</h1><p class="lead">不同工具解决不同问题。生产控制、专业标注画布、数据存储和自动化可以组合，不需要一开始就从零开发整套平台。</p></section>
+    <div class="shell reader">
+      <aside class="toc"><strong>本页目录</strong><nav><a href="#system">完整系统</a><a href="#layers">四层架构</a><a href="#tools">工具分工</a><a href="#choose">如何选择</a><a href="#security">安全边界</a></nav></aside>
+      <article class="article" id="article">
+        <div class="summary"><strong>先看结论</strong><p>专业数据生产系统至少要管理数据、项目、批次、人员、标注、质检、返工、版本、交付和权限。标注画布只是其中一个模块。</p></div>
+
+        <h2 id="system">1. “标注系统”不等于一个网页</h2>
+        <p>只看标注界面，很容易忽略项目真正困难的部分：</p><ul><li>数据怎样进入和离开系统；</li><li>谁能看到哪个项目；</li><li>规则变化后哪些任务受影响；</li><li>如何质检、驳回、返工和复验；</li><li>怎样导出指定版本并证明质量；</li><li>如何撤权、审计和删除。</li></ul>
+        <div class="note note-why"><span class="note-label">为什么重要</span><p>甲方验收失败通常不只是因为“不会点标签”，而是规则不清、版本混乱、权限越界或质量证据不足。</p></div>
+
+        <h2 id="layers">2. 一个实用的四层架构</h2>
+        <div class="table-wrap"><table><thead><tr><th>层</th><th>作用</th><th>常见选择</th></tr></thead><tbody><tr><td><strong>生产控制层</strong></td><td>项目、批次、人员、状态、质检、交付和结算</td><td>飞书多维表格或自研控制台</td></tr><tr><td><strong>标注编辑层</strong></td><td>文本、图像、音频、视频、点云等操作界面</td><td>飞书、Label Studio、CVAT 或商业平台</td></tr><tr><td><strong>数据层</strong></td><td>业务数据、素材、标签结果、版本和备份</td><td>PostgreSQL、对象存储或学校指定存储</td></tr><tr><td><strong>自动化层</strong></td><td>导入导出、自动校验、事件同步和质量脚本</td><td>API、Webhook 和轻量服务</td></tr></tbody></table></div>
+
+        <h2 id="tools">3. 常见工具分别适合什么</h2>
+        <h3>飞书</h3><p>适合项目控制、文档规范、文本判断、结构化任务、状态看板和协作。优点是上手快，但需要实测租户权限、审计和导出控制。</p>
+        <h3>Label Studio</h3><p>适合文本、音频、图像等通用多模态标注。社区版更适合内部演示或单客户独立实例；多客户共享时必须关注项目隔离。</p>
+        <h3>CVAT</h3><p>更适合图像、视频、目标检测、分割和部分 3D 场景，具备任务、作业、角色和验证流程。</p>
+        <h3>商业端到端平台</h3><p>当项目要求精细权限、SSO、私有云、复杂工作流、厂商支持和 SLA 时评估。采购前仍需做功能、价格、部署和合规验证。</p>
+        <div class="note"><span class="note-label">说明</span><p>这里是基于公开文档的能力归纳，不是市场占有率排名，也不表示“大部分公司都使用同一个软件”。</p></div>
+
+        <h2 id="choose">4. 按任务选择，而不是按名气选择</h2>
+        <ul><li>文本分类、对话评分、偏好排序：飞书或 Label Studio；</li><li>图像分类、检测、分割、视频：优先评估 CVAT；</li><li>需要校内部署：先确认网络、存储、账号和运维条件；</li><li>需要复杂权限或厂商 SLA：评估商业平台；</li><li>规模和需求尚不稳定：先组合成熟工具验证流程。</li></ul>
+
+        <h2 id="security">5. 工具能用不等于安全条件满足</h2>
+        <p>必须用测试账号验证：</p><ul><li>不同角色能看到什么；</li><li>是否可以下载、复制或导出；</li><li>删除和撤权是否立即生效；</li><li>哪些操作有日志，保留多久；</li><li>不同学校或项目是否真正隔离；</li><li>备份和第三方存储在哪里。</li></ul>
+        <div class="note note-warning"><span class="note-label">学校数据场景</span><p>如果数据不能离校，工具选型必须服从学校的部署和安全要求。不能因为某个平台方便，就绕过校内审批或数据驻留限制。</p></div>
+        <div class="next-links"><a href="../quality/">← 上一页：质量验收</a><a href="../learn/lesson-01/">下一页：第一课 →</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>标注系统选型</strong><br>先确定任务和安全边界，再选择工具</div><div>© <span data-current-year>2026</span></div></div></footer><script src="../assets/site.js"></script>
+</body></html>

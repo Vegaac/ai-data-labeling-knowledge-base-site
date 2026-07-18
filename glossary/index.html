@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="数据标注、模型训练与质量验收常用术语。"><title>术语速查｜AI 模型数据标注知识库</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="../"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航"><a href="../">首页</a><a href="../start/">入门</a><a href="../school-model/">学校模型</a><a href="../workflow/">交付流程</a><a href="../quality/">质量验收</a><a href="../platform/">系统选型</a><a href="./" aria-current="page">术语</a></nav></div></header>
+  <main>
+    <section class="shell page-hero"><div class="breadcrumbs"><a href="../">首页</a> / 术语速查</div><p class="kicker">Plain-language glossary</p><h1>第一次接触数据标注时最常见的词</h1><p class="lead">这里使用通俗解释。具体项目中的定义仍以双方确认的标注规范和合同为准。</p></section>
+    <div class="shell reader">
+      <aside class="toc"><strong>快速定位</strong><nav><a href="#data">数据与模型</a><a href="#annotation">标注生产</a><a href="#quality">质量</a><a href="#delivery">交付与安全</a></nav></aside>
+      <article class="article" id="article">
+        <h2 id="data">数据与模型</h2>
+        <dl class="definition-list">
+          <div class="definition"><dt>训练集</dt><dd>用于让模型学习规律的数据。</dd></div>
+          <div class="definition"><dt>验证集</dt><dd>训练过程中用于选择参数、模型版本或停止时机的数据。</dd></div>
+          <div class="definition"><dt>测试集</dt><dd>用于最终评价模型泛化效果的数据，应与训练过程隔离。</dd></div>
+          <div class="definition"><dt>评测集</dt><dd>针对特定能力、场景或风险设计的评价数据，可以独立于常规测试集。</dd></div>
+          <div class="definition"><dt>数据泄漏</dt><dd>训练过程接触了本应隔离的验证、测试或答案信息，导致指标虚高。</dd></div>
+        </dl>
+
+        <h2 id="annotation">标注生产</h2>
+        <dl class="definition-list">
+          <div class="definition"><dt>标签体系</dt><dd>项目允许使用的类别、属性、关系、评分或结构集合。</dd></div>
+          <div class="definition"><dt>标注规范</dt><dd>定义标签、正反例、边界、跳过和疑难处理的操作说明。</dd></div>
+          <div class="definition"><dt>试标</dt><dd>正式生产前用少量代表性样本验证规则、人员、工具、质量和成本。</dd></div>
+          <div class="definition"><dt>预标注</dt><dd>先由规则或模型生成初步答案，再由人工确认或修正。</dd></div>
+          <div class="definition"><dt>仲裁</dt><dd>多人意见不一致时，由指定负责人或领域专家作最终判断。</dd></div>
+        </dl>
+
+        <h2 id="quality">质量</h2>
+        <dl class="definition-list">
+          <div class="definition"><dt>金标</dt><dd>由可信专家确认、用作培训、考试或质量检查的标准答案。</dd></div>
+          <div class="definition"><dt>双标</dt><dd>让两名人员独立处理同一样本，用于发现分歧和规则歧义。</dd></div>
+          <div class="definition"><dt>准确率</dt><dd>被判定正确的样本数占被检查有效样本数的比例，必须说明抽样和分母。</dd></div>
+          <div class="definition"><dt>一致性</dt><dd>不同标注人员答案相同或接近的程度；一致不一定代表正确。</dd></div>
+          <div class="definition"><dt>首过率</dt><dd>第一次提交即通过质检的任务比例。</dd></div>
+        </dl>
+
+        <h2 id="delivery">交付与安全</h2>
+        <dl class="definition-list">
+          <div class="definition"><dt>SOW</dt><dd>工作说明书，写明范围、数据、交付、验收、责任、变更和商务条件。</dd></div>
+          <div class="definition"><dt>数据版本</dt><dd>对某次数据集状态的唯一标识，应能对应规则、批次和变更记录。</dd></div>
+          <div class="definition"><dt>RBAC</dt><dd>基于角色的访问控制，不同角色获得不同权限。</dd></div>
+          <div class="definition"><dt>去标识化</dt><dd>降低直接识别个人的可能性，但仍可能通过额外信息重新识别。</dd></div>
+          <div class="definition"><dt>匿名化</dt><dd>在合理条件下无法识别且不能复原到个人，要求通常高于去标识化。</dd></div>
+        </dl>
+        <div class="note note-warning"><span class="note-label">提醒</span><p>术语解释用于入门。涉及个人信息、学校未公开科研数据、医疗数据或合同责任时，应由专业人士结合真实项目确认。</p></div>
+        <div class="next-links"><a href="../learn/lesson-01/">← 上一页：第一课</a><a href="../">返回首页 →</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>术语速查</strong><br>具体定义以项目规范和合同为准</div><div>© <span data-current-year>2026</span></div></div></footer><script src="../assets/site.js"></script>
+</body></html>

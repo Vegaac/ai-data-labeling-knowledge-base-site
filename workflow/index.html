@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="数据标注项目从需求到版本交付的标准流程。"><title>标准交付流程｜AI 模型数据标注知识库</title><link rel="stylesheet" href="../assets/site.css"></head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="../"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航"><a href="../">首页</a><a href="../start/">入门</a><a href="../school-model/">学校模型</a><a href="./" aria-current="page">交付流程</a><a href="../quality/">质量验收</a><a href="../platform/">系统选型</a><a href="../glossary/">术语</a></nav></div></header>
+  <main>
+    <section class="shell page-hero"><div class="breadcrumbs"><a href="../">首页</a> / 标准交付流程</div><p class="kicker">From model goal to dataset</p><h1>一批数据怎样变成可验收交付物</h1><p class="lead">专业交付不从“开始标”开始，也不以“全部点完”结束。完整项目包含需求、规则、系统、质量、版本和安全收尾。</p></section>
+    <div class="shell reader">
+      <aside class="toc"><strong>本页目录</strong><nav><a href="#overview">流程总览</a><a href="#steps">八个步骤</a><a href="#deliverables">交付清单</a><a href="#changes">规则变更</a><a href="#finish">项目结束</a></nav></aside>
+      <article class="article" id="article">
+        <div class="summary"><strong>先看结论</strong><p>标注结果只有与模型目标、规范版本、质量报告和交付清单绑定，才是一套可复现、可追责的数据产品。</p></div>
+
+        <h2 id="overview">1. 流程总览</h2>
+        <pre class="flow-code">模型目标
+→ 需求澄清
+→ 样本审计
+→ 标签与规范
+→ 小批试标
+→ 正式标注
+→ 质检、返工与仲裁
+→ 版本化交付
+→ 模型反馈与数据迭代</pre>
+
+        <h2 id="steps">2. 八个关键步骤</h2>
+        <div class="steps">
+          <div class="step"><span class="step-no">01</span><div><h3>明确模型目标</h3><p>确认数据用于训练、验证、测试还是评测，以及要解决的模型错误。</p></div></div>
+          <div class="step"><span class="step-no">02</span><div><h3>审计代表性样本</h3><p>检查格式、重复、缺失、分布、敏感项、版权和可标注性。</p></div></div>
+          <div class="step"><span class="step-no">03</span><div><h3>设计标签与规范</h3><p>写清定义、正例、反例、边界、跳过和疑难处理。</p></div></div>
+          <div class="step"><span class="step-no">04</span><div><h3>小批试标</h3><p>让多人独立处理代表性样本，发现分歧并修订规则。</p></div></div>
+          <div class="step"><span class="step-no">05</span><div><h3>配置系统和权限</h3><p>建立批次、角色、状态、校验、质检、返工和导出控制。</p></div></div>
+          <div class="step"><span class="step-no">06</span><div><h3>正式生产</h3><p>按批次分配任务，监控进度、异常耗时、疑难和质量趋势。</p></div></div>
+          <div class="step"><span class="step-no">07</span><div><h3>质检与返工</h3><p>结合自动校验、金标、双标、抽检和专家仲裁修复错误。</p></div></div>
+          <div class="step"><span class="step-no">08</span><div><h3>版本化交付</h3><p>同时交付数据、规范版本、质量证据、已知问题和安全记录。</p></div></div>
+        </div>
+
+        <h2 id="deliverables">3. 交付不只是一个数据文件</h2>
+        <ul><li>标注后的数据文件；</li><li>字段说明和数据字典；</li><li>数据集版本号、批次和变更记录；</li><li>对应的标注规范版本；</li><li>质量报告、抽样方法和错误分类；</li><li>疑难样本、跳过项和已知问题；</li><li>文件清单或校验值；</li><li>数据保留、删除和权限撤销记录。</li></ul>
+        <div class="note"><span class="note-label">术语注释 · 版本化交付</span><p>每次交付都应有唯一版本，例如 Dataset v1.2，并能追溯它使用了哪版规则、包含哪些批次、修复了什么问题。否则模型效果变化时，很难判断训练用的是哪批数据。</p></div>
+
+        <h2 id="changes">4. 标签规则发生变化怎么办</h2>
+        <p>规则变化不能只修改文档。还要记录：</p><ol><li>谁提出、为什么改变；</li><li>新规则从哪个批次生效；</li><li>已完成数据是否受影响；</li><li>需要全部返工、抽样复核还是不处理；</li><li>学校和企业由谁批准。</li></ol>
+        <div class="note note-example"><span class="note-label">举例</span><p>原来“退款相关”只有一个标签，后来拆成“未发货退款”和“售后退款”。旧数据是否需要重标，将直接影响模型训练和历史指标，不能默默修改。</p></div>
+
+        <h2 id="finish">5. 项目结束也有交付动作</h2>
+        <ul><li>停止新任务；</li><li>完成最后返工和复验；</li><li>冻结最终数据版本；</li><li>撤销不再需要的账号和权限；</li><li>按协议返还、保留或删除数据；</li><li>记录备份、导出和删除结果；</li><li>复盘质量问题和下一轮数据建议。</li></ul>
+        <div class="next-links"><a href="../school-model/">← 上一页：学校模型合作</a><a href="../quality/">下一页：质量与验收 →</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>标准交付流程</strong><br>数据、规范、质量和版本一起交付</div><div>© <span data-current-year>2026</span></div></div></footer><script src="../assets/site.js"></script>
+</body></html>

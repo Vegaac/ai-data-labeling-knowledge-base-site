@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="面向学校与科研团队的 AI 模型数据标注入门知识库。">
+  <title>AI 模型数据标注知识库</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="./"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button>
+      <nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航">
+        <a href="./" aria-current="page">首页</a><a href="start/">入门</a><a href="school-model/">学校模型</a><a href="workflow/">交付流程</a><a href="quality/">质量验收</a><a href="platform/">系统选型</a><a href="glossary/">术语</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="shell hero">
+      <div>
+        <p class="kicker">AI training data · annotation · quality</p>
+        <h1>把原始数据，变成<span>模型真正能用</span>的数据集</h1>
+        <p class="lead">面向正在训练 AI 模型的学校、实验室和研发团队，解释数据标注是什么、如何组织生产、怎样证明质量，以及如何完成可验收的数据交付。</p>
+        <div class="button-row"><a class="button button-primary" href="start/">从入门导读开始</a><a class="button button-secondary" href="school-model/">了解学校模型合作</a></div>
+      </div>
+      <aside class="hero-flow" aria-label="数据进入模型前的关键步骤">
+        <strong>原始数据进入模型前会经历什么？</strong>
+        <div class="flow-row"><span class="flow-num">01</span><span><b>明确模型目标</b><span>数据用于训练、验证、测试还是评测</span></span></div>
+        <div class="flow-row"><span class="flow-num">02</span><span><b>设计标签规则</b><span>把教师或专家判断写成可执行规范</span></span></div>
+        <div class="flow-row"><span class="flow-num">03</span><span><b>标注与质量控制</b><span>培训、试标、复核、返工和仲裁</span></span></div>
+        <div class="flow-row"><span class="flow-num">04</span><span><b>版本化交付</b><span>数据、规范、质量报告与已知问题</span></span></div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="shell position-banner">
+        <h2>先把合作关系说清楚</h2>
+        <p><strong>学校或课题组是模型建设方和数据需求方；数据标注企业是技术服务与质量交付方。</strong><br>当前合作讨论的是如何为模型提供训练和评测数据，不是招募学生参与标注。若未来出现课程或学生实践需求，应作为另一项合作单独设计。</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">先解决三个问题</p><h2>第一次接触数据标注，从这里建立框架</h2><p>每个页面都提供术语注释、例子和“为什么重要”，不要求你预先懂 AI 工程。</p></div>
+        <div class="card-grid">
+          <article class="card"><small>WHAT</small><h3>数据标注到底是什么？</h3><p>理解原始数据、标签、标注规范、训练集和评测集之间的关系。</p><a href="start/">阅读入门导读 →</a></article>
+          <article class="card"><small>HOW</small><h3>一个项目怎样交付？</h3><p>从需求澄清、样本审计、试标，到质检、返工和版本交付。</p><a href="workflow/">查看交付流程 →</a></article>
+          <article class="card"><small>PROOF</small><h3>怎样证明做得对？</h3><p>看懂准确率、一致性、金标、抽样，以及验收中的常见误区。</p><a href="quality/">学习质量验收 →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="section-heading"><p class="kicker">推荐阅读顺序</p><h2>按问题阅读，不用一次看完</h2></div>
+        <div class="reading-grid">
+          <a class="reading-link" href="start/"><span class="reading-no">01</span><span><b>新手入门</b><span>先理解模型为什么需要标注数据</span></span></a>
+          <a class="reading-link" href="school-model/"><span class="reading-no">02</span><span><b>学校模型数据合作</b><span>双方分别负责什么，第一次如何起步</span></span></a>
+          <a class="reading-link" href="workflow/"><span class="reading-no">03</span><span><b>标准交付流程</b><span>从样本到可验收数据集</span></span></a>
+          <a class="reading-link" href="quality/"><span class="reading-no">04</span><span><b>质量与验收</b><span>指标如何定义，如何避免“虚高准确率”</span></span></a>
+          <a class="reading-link" href="platform/"><span class="reading-no">05</span><span><b>标注系统选型</b><span>飞书、Label Studio、CVAT 分别做什么</span></span></a>
+          <a class="reading-link" href="learn/lesson-01/"><span class="reading-no">06</span><span><b>第一课</b><span>产业链与数据标注服务商定位</span></span></a>
+          <a class="reading-link" href="glossary/"><span class="reading-no">07</span><span><b>术语速查</b><span>遇到陌生词时随时回来查询</span></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>AI 模型数据标注知识库</strong><br>公开通用知识，不展示任何真实客户、学校或项目进展</div><div>© <span data-current-year>2026</span></div></div></footer>
+  <script src="assets/site.js"></script>
+</body>
+</html>
