@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="第二课：文本、图像、音频、视频、点云和大模型的数据标注任务。"><title>第二课：数据模态与任务类型｜AI 模型数据标注知识库</title><link rel="stylesheet" href="../../assets/site.css"></head>
+<body>
+  <a class="skip-link" href="#article">跳到正文</a>
+  <header class="site-header"><div class="nav-shell"><a class="brand" href="../../"><span class="brand-mark">AI</span><span>模型数据标注知识库</span></a><button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">菜单</button><nav class="site-nav" id="site-nav" data-site-nav aria-label="主导航"><a href="../../">首页</a><a href="../../start/">入门</a><a href="../../school-model/">学校模型</a><a href="../../workflow/">交付流程</a><a href="../../quality/">质量验收</a><a href="../../platform/">系统选型</a><a href="../" aria-current="page">课程</a><a href="../../glossary/">术语</a></nav></div></header>
+  <main>
+    <section class="shell page-hero"><div class="breadcrumbs"><a href="../../">首页</a> / <a href="../">课程中心</a> / 第二课</div><p class="kicker">Lesson 02</p><h1>数据模态与标注任务类型</h1><p class="lead">目标：看到一个模型数据需求时，能从“输入是什么、人工做什么、输出长什么样、数据用于哪里”四个方面准确拆解。</p></section>
+    <div class="shell reader">
+      <aside class="toc"><strong>本课目录</strong><nav><a href="#method">四层拆解法</a><a href="#different">四种工作</a><a href="#text">文本</a><a href="#image">图像</a><a href="#audio-video">音频与视频</a><a href="#pointcloud">点云</a><a href="#llm">大模型</a><a href="#same-data">同数据不同任务</a><a href="#questions">询问清单</a><a href="#exercise">练习</a></nav></aside>
+      <article class="article" id="article">
+        <div class="summary"><strong>本课先记住四句话</strong><p>模态是输入；任务是人工动作；格式是结果结构；用途是数据进入训练、验证、测试或评测的哪个环节。</p></div>
+
+        <h2 id="method">1. “模态—任务—格式—用途”四层拆解法</h2>
+        <div class="table-wrap"><table><thead><tr><th>层次</th><th>要问什么</th><th>例子</th></tr></thead><tbody><tr><td><strong>数据模态</strong></td><td>输入是什么？</td><td>中文客服对话</td></tr><tr><td><strong>标注任务</strong></td><td>人工做什么？</td><td>判断意图并标出实体</td></tr><tr><td><strong>交付格式</strong></td><td>结果长什么样？</td><td>意图、实体文本和起止位置组成的 JSON</td></tr><tr><td><strong>模型用途</strong></td><td>数据用在哪里？</td><td>意图识别模型训练集</td></tr></tbody></table></div>
+        <div class="note note-example"><span class="note-label">专业任务描述</span><p>对中文客服对话进行意图分类和实体抽取，按照规范输出 JSON；数据用于模型监督微调，委托方提供意图体系并仲裁业务难例。</p></div>
+        <div class="note note-warning"><span class="note-label">信息不足的说法</span><p>“有一批文本要标注。”这句话无法确定工具、人员、工时、质量方法和报价。</p></div>
+
+        <h2 id="different">2. 采集、清洗、标注和评测不是一回事</h2>
+        <div class="table-wrap"><table><thead><tr><th>工作</th><th>通俗解释</th><th>例子</th></tr></thead><tbody><tr><td>数据采集</td><td>获得原始材料</td><td>拍照、录音、收集公开文档</td></tr><tr><td>数据清洗</td><td>去掉或修复不能使用的数据</td><td>去重、修复格式、过滤损坏文件</td></tr><tr><td>数据标注</td><td>为样本增加结构化答案</td><td>分类、框选、转写、关系抽取</td></tr><tr><td>模型评测</td><td>检查已有模型表现</td><td>评价答案正确性、安全性和证据</td></tr></tbody></table></div>
+        <div class="note note-why"><span class="note-label">为什么要区分</span><p>四类工作的工具、专业人员、成本和验收标准不同。学校说“有一批数据要处理”时，要继续问具体是哪一种。</p></div>
+
+        <h2 id="text">3. 文本数据</h2>
+        <ul><li><strong>文本分类：</strong>给整段文字选择情感、主题、风险或用户意图。</li><li><strong>实体抽取：</strong>标出人名、机构、时间、术语等文本片段。</li><li><strong>关系抽取：</strong>判断两个实体之间的关系。</li><li><strong>问答构建：</strong>根据文档制作问题、参考答案和证据出处。</li><li><strong>内容审核：</strong>判断有害、隐私、虚假或不适合的内容。</li></ul>
+        <div class="note"><span class="note-label">术语注释 · 实体抽取</span><p>除了实体类别，还经常需要记录文字在原文中的起止位置。输入版本或字符编码变化，位置就可能错位。</p></div>
+
+        <h2 id="image">4. 图像数据</h2>
+        <div class="table-wrap"><table><thead><tr><th>任务</th><th>回答的问题</th><th>典型输出</th></tr></thead><tbody><tr><td>图像分类</td><td>整张图是什么？</td><td>一个或多个类别</td></tr><tr><td>目标检测</td><td>物体大概在哪里？</td><td>矩形框坐标 + 类别</td></tr><tr><td>语义分割</td><td>每个像素属于什么？</td><td>类别掩膜</td></tr><tr><td>实例分割</td><td>同类不同物体分别在哪里？</td><td>实例掩膜 + ID</td></tr><tr><td>关键点</td><td>特定结构点在哪里？</td><td>点坐标和可见性</td></tr><tr><td>OCR</td><td>图中有哪些文字？</td><td>文字区域 + 转写内容</td></tr></tbody></table></div>
+        <div class="note note-why"><span class="note-label">为什么不能只按图片数量报价</span><p>一张图里有几个物体、遮挡是否严重、边界多精细，都会显著改变工时。逐像素分割通常比整图分类耗时得多。</p></div>
+
+        <h2 id="audio-video">5. 音频与视频数据</h2>
+        <h3>音频常见任务</h3><ul><li>语音转写；</li><li>语句或词语时间戳；</li><li>说话人分离；</li><li>情绪、发音或口音；</li><li>音频事件检测。</li></ul>
+        <div class="note"><span class="note-label">计量注释</span><p>音频工作量通常看总时长，而不是只看文件数。还要了解有效语音比例、噪声、口音、说话人数和时间戳精度。</p></div>
+        <h3>视频常见任务</h3><ul><li>逐帧目标检测；</li><li>同一物体的跨帧跟踪；</li><li>动作识别；</li><li>事件起止时间；</li><li>视频分割、描述或问答。</li></ul>
+        <div class="note note-why"><span class="note-label">为什么视频不等于很多张图片</span><p>视频包含时间连续性。报价要考虑帧率、关键帧、跟踪 ID、遮挡、插值工具和自动跟踪后的人工修正。</p></div>
+
+        <h2 id="pointcloud">6. 点云与三维数据</h2>
+        <p>点云由大量三维坐标点组成，常用于激光雷达、机器人、测绘和自动驾驶。</p><ul><li>三维框；</li><li>点级分割；</li><li>三维目标跟踪；</li><li>车道线或空间结构；</li><li>相机与点云对齐；</li><li>方向、遮挡和运动属性。</li></ul>
+        <div class="note note-warning"><span class="note-label">项目风险</span><p>点云任务需要专业工具、图形性能、坐标系知识和复杂规范。没看样本和工具前，不应承诺固定单价或产能。</p></div>
+
+        <h2 id="llm">7. 大模型与多模态数据</h2>
+        <p>大模型项目中的标注不一定是“选标签”，也可能是写答案、比较回答或按规则评分。</p><ul><li>指令—回答示例编写；</li><li>事实性、相关性、完整性和安全性评分；</li><li>多个回答的偏好排序；</li><li>事实核验和证据绑定；</li><li>安全评测与红队测试；</li><li>RAG 检索和回答质量评测；</li><li>图文、音视频等多模态问答。</li></ul>
+        <div class="note"><span class="note-label">术语注释 · Rubric</span><p>Rubric 是评分规则表，把“回答好不好”拆成可判断维度，并说明每个分数代表什么。</p></div>
+        <div class="note"><span class="note-label">术语注释 · RAG</span><p>检索增强生成：系统先从文档中找资料，再让模型基于资料回答。评测时要分别判断检索是否相关、回答是否忠于证据、是否完整。</p></div>
+
+        <h2 id="same-data">8. 同一份数据可以对应不同任务</h2>
+        <p>以一张农作物叶片照片为例：</p>
+        <div class="table-wrap"><table><thead><tr><th>模型目标</th><th>标注任务</th><th>输出</th></tr></thead><tbody><tr><td>判断是否患病</td><td>图像分类</td><td>健康/患病</td></tr><tr><td>找到病斑位置</td><td>目标检测</td><td>矩形框 + 病斑类别</td></tr><tr><td>计算病斑面积</td><td>图像分割</td><td>像素掩膜</td></tr><tr><td>回答病害问题</td><td>图文问答</td><td>问题 + 参考答案</td></tr><tr><td>检查模型解释</td><td>多维评分</td><td>正确性、依据和完整性评分</td></tr></tbody></table></div>
+
+        <h2 id="questions">9. 报价和选系统前至少问十个问题</h2>
+        <ol><li>输入模态、格式、数量和总大小是什么？</li><li>人工具体执行什么动作？</li><li>每个样本平均有多少对象、片段或判断项？</li><li>输出字段、坐标、时间戳或评分格式是什么？</li><li>数据用于训练、验证、测试还是评测？</li><li>谁定义标签并仲裁专业难例？</li><li>质量如何抽样、计算和验收？</li><li>数据能否离开学校，部署和权限有什么要求？</li><li>是否允许预标注和其他自动化？</li><li>能否先用代表性样本试标？</li></ol>
+
+        <h2 id="exercise">10. 今日练习</h2>
+        <p>请对下面四个需求，分别写出<strong>模态、任务、格式、用途</strong>：</p>
+        <ol><li>从学校公开规章中制作“问题—答案—证据出处”；</li><li>标出显微图像中的细胞位置和轮廓；</li><li>把课堂录音转成带说话人和时间戳的文字；</li><li>评价大模型回答是否事实正确并有文档依据。</li></ol>
+        <div class="note note-example"><span class="note-label">作答格式</span><p>模态：文本；任务：问答构建和证据绑定；格式：JSON；用途：RAG 模型训练或评测。</p></div>
+        <p>完成其中两题发给 Codex，我会检查你是否真正掌握四层拆解法。</p>
+        <div class="next-links"><a href="../lesson-01/">← 上一课：产业链与定位</a><a href="../">返回课程中心 →</a></div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-shell"><div><strong>第二课</strong><br>模态只是输入，任务和用途决定真正工作量</div><div>© <span data-current-year>2026</span></div></div></footer><script src="../../assets/site.js"></script>
+</body></html>
